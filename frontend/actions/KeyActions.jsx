@@ -9,6 +9,11 @@ var KeyActions = {
   keyUnpressed: function (noteName) {
     var payload = {actionType: "STOP_NOTE", noteName: noteName};
     AppDispatcher.dispatch(payload);
+  },
+
+  playNote: function (notes) {
+    var payload = {actionType: "SET_NOTES", notes: notes};
+    AppDispatcher.dispatch(payload);
   }
 };
 

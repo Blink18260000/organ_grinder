@@ -11,9 +11,7 @@ var Key = React.createClass({
   },
 
   componentDidMount: function () {
-    console.log(this.state);
     this.Note = new Note(this.state.freq);
-    console.log(this.Note);
     this.KeyStoreToken = KeyStore.addListener(this.NewKeys);
   },
 
@@ -22,7 +20,11 @@ var Key = React.createClass({
   },
 
   render: function() {
-    return (<p>Potato Salad</p>);
+    if (this.state.playing) {
+      return (<p className="keyOn">{this.props.noteName}</p>);
+    } else {
+      return (<p className="keyOff">{this.props.noteName}</p>);
+    }
   },
 
   NewKeys: function() {

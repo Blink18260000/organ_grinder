@@ -4,23 +4,23 @@ var React = require('react'),
     KeyActions = require('../actions/KeyActions'),
     KeyStore = require('../stores/KeyStore'),
     Key = require('./key'),
-    TONES = require('../constants/Tones');
+    TONES = require('../constants/Tones'),
+    KeyMap = require('../constants/KeyMap'),
+    Recorder = require('./recorder');
 
 var Organ = React.createClass({
-  getInitialState: function () {
-    return {notes: []};
-  },
-
-  componentDidMount: function () {
-    KeyStore.addListener(this.keyChange);
-  },
 
   render: function() {
-    return (<p>potato</p>);
-  },
-
-  keyChange: function () {
-
+    return(
+      <ul>
+        {
+          Object.keys(KeyMap).map(function(key) {
+            return <Key noteName={KeyMap[key]} key={KeyMap[key]}/>;
+          })
+        }
+        <Recorder />
+      </ul>
+    );
   }
 
 });

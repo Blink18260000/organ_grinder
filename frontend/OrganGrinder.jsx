@@ -7,5 +7,5 @@ var React = require('react'),
 require('./util/KeyListener.js');
 
 document.addEventListener("DOMContentLoaded", function(){
-  ReactDOM.render(<Key noteName="C6" class="key"/>, document.getElementById('root'));
+  ReactDOM.render(<Organ/>, document.getElementById('root'));
 });
